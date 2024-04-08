@@ -1,0 +1,54 @@
+@startuml
+
+class Obras{
+    # String clave;
+    # String Titulo;
+    # Float Precio;
+    # Date FechaCreacion;
+    # Compañia compañias;
+}
+
+class CD{
+    - Int #cd;
+    - Coleccion coleccion;
+    - List<Artista> artista;
+    - List<Cancion> canciones;
+}
+class Cancion{
+    - String CancionNombre;
+    - Float Duracion;
+    - CD cd;
+
+}
+class Coleccion{
+    -String Promotor;
+    -List<CD> cd;
+}
+
+class Artista{
+    #String Nombre;
+    #String Nacionalidad;
+    #String GeneroDeMusica;
+    -CD cd;
+}
+class Grupo{
+    -Int #Integrantes;
+    -String IntegrantesNombre;
+}
+
+class Compañia{
+    -String CompañiaNombre;
+    -String Direccion;
+    -String PaisOrigen;
+    -List<Obras> obras;
+}
+
+
+Obras <|-- CD
+Obras <|-- Coleccion
+Artista <|-- Grupo
+Coleccion "1" -- "*" CD : Compone
+Cancion "*" -- "1" CD : Tiene
+CD "1" -- "*" Artista : Crear
+Compañia "1" -- "*" Obras : Editar
+@enduml
