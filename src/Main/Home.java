@@ -7,17 +7,21 @@ package Main;
 import Models.Models.*;
 import Models.Models.Crud.*;
 import Main.Main;
+import java.awt.BorderLayout;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-
+import Serializacion.SerializarObjeto;
 /**
  *
  * @author Fer
  */
 
 public class Home extends javax.swing.JFrame {
+
 
     DefaultListModel modelo = new DefaultListModel();
     ObraCrud Datosobra = new ObraCrud();
@@ -32,24 +36,9 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-        Lista_de_canciones.setModel(modelo);
+       
         /* prueba */
-        modelo.removeAllElements();
         
-        try {
-            List<CD> Lcd = Datoscd.ListaDeCDs();
-            for (int j = 0; j < Lcd.size(); j++) {
-            modelo.addElement(Lcd.get(j));
-            }
-            
-            List<Cancion> Lcan = Datoscancion.ListaDeCancions();
-            
-            for (int z = 0; z < Lcan.size(); z++) {
-            modelo.addElement(Lcan.get(z));
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
             }
         
 
@@ -65,137 +54,119 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         TItulo = new javax.swing.JLabel();
-        añadir = new javax.swing.JButton();
         Panel_de_canciones = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        Lista_de_canciones = new javax.swing.JList<>();
-        editar = new javax.swing.JButton();
-        actualizar = new javax.swing.JButton();
-        borrar = new javax.swing.JButton();
+        Boton_canciones = new javax.swing.JButton();
+        Boton_cd = new javax.swing.JButton();
+        Salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         TItulo.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
         TItulo.setText("DISSONANCE Music");
         TItulo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         TItulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        añadir.setText("Añadir");
-        añadir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                añadirActionPerformed(evt);
-            }
-        });
-
-        jScrollPane2.setViewportView(Lista_de_canciones);
-
         javax.swing.GroupLayout Panel_de_cancionesLayout = new javax.swing.GroupLayout(Panel_de_canciones);
         Panel_de_canciones.setLayout(Panel_de_cancionesLayout);
         Panel_de_cancionesLayout.setHorizontalGroup(
             Panel_de_cancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_de_cancionesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2))
+            .addGap(0, 796, Short.MAX_VALUE)
         );
         Panel_de_cancionesLayout.setVerticalGroup(
             Panel_de_cancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_de_cancionesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE))
+            .addGap(0, 388, Short.MAX_VALUE)
         );
 
-        editar.setText("Editar");
-        editar.addActionListener(new java.awt.event.ActionListener() {
+        Boton_canciones.setText("Canciones");
+        Boton_canciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarActionPerformed(evt);
+                Boton_cancionesActionPerformed(evt);
             }
         });
 
-        actualizar.setText("Actualizar");
-        actualizar.addActionListener(new java.awt.event.ActionListener() {
+        Boton_cd.setText("CD");
+        Boton_cd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                actualizarActionPerformed(evt);
+                Boton_cdActionPerformed(evt);
             }
         });
 
-        borrar.setText("Borrar");
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(Panel_de_canciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TItulo, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(TItulo, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(Panel_de_canciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(99, Short.MAX_VALUE)
-                        .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(editar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)))
-                .addGap(36, 36, 36))
+                        .addComponent(Boton_cd, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Boton_canciones, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(175, 175, 175))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(TItulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(Panel_de_canciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(Boton_cd, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(Boton_canciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(editar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17))
+                .addComponent(Panel_de_canciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
-        /*VentanaAñadirObra Abrir = new VentanaAñadirObra();
-        Abrir.show();*/
-        VentanaAñadir abrir = new VentanaAñadir();
-        abrir.show();
-    }//GEN-LAST:event_añadirActionPerformed
-
-    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
+    private void Boton_cdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_cdActionPerformed
         // TODO add your handling code here:
-       modelo.removeAllElements();
+        CDList ventanacd = new CDList();
+        ventanacd.setSize(800,400);
+        ventanacd.setLocation(0, 0);
         
-        try {
-            List<CD> Lcd = Datoscd.ListaDeCDs();
-            for (int j = 0; j < Lcd.size(); j++) {
-            modelo.addElement(Lcd.get(j));
-            }
-            
-            List<Cancion> Lcan = Datoscancion.ListaDeCancions();
-            
-            for (int z = 0; z < Lcan.size(); z++) {
-            modelo.addElement(Lcan.get(z));
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Panel_de_canciones.removeAll();
+        Panel_de_canciones.add(ventanacd,BorderLayout.CENTER);
+        Panel_de_canciones.revalidate();
+        Panel_de_canciones.repaint();
+    }//GEN-LAST:event_Boton_cdActionPerformed
 
-
-    }//GEN-LAST:event_actualizarActionPerformed
-
-    private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
+    private void Boton_cancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_cancionesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_editarActionPerformed
+        CancionesList ventanac = new CancionesList();
+        ventanac.setSize(800,400);
+        ventanac.setLocation(0, 0);
+        
+        Panel_de_canciones.removeAll();
+        Panel_de_canciones.add(ventanac,BorderLayout.CENTER);
+        Panel_de_canciones.revalidate();
+        Panel_de_canciones.repaint();
+    }//GEN-LAST:event_Boton_cancionesActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_SalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,14 +204,12 @@ public class Home extends javax.swing.JFrame {
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> Lista_de_canciones;
+    private javax.swing.JButton Boton_canciones;
+    private javax.swing.JButton Boton_cd;
     private javax.swing.JPanel Panel_de_canciones;
+    private javax.swing.JButton Salir;
     private javax.swing.JLabel TItulo;
-    private javax.swing.JButton actualizar;
-    private javax.swing.JButton añadir;
-    private javax.swing.JButton borrar;
-    private javax.swing.JButton editar;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPopupMenu jPopupMenu1;
     // End of variables declaration//GEN-END:variables
 }
 

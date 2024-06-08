@@ -6,7 +6,6 @@ package Main;
 
 import java.awt.BorderLayout;
 import Main.*;
-import Main.VentanaAñadirObra;
 
 /**
  *
@@ -35,6 +34,7 @@ public class VentanaAñadir extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         BotonCanciones = new javax.swing.JButton();
         BotonCD = new javax.swing.JButton();
+        Salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -66,6 +66,13 @@ public class VentanaAñadir extends javax.swing.JFrame {
             }
         });
 
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,13 +84,15 @@ public class VentanaAñadir extends javax.swing.JFrame {
                         .addComponent(PanelAñadirCosas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 62, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(BotonCanciones)
-                        .addGap(50, 50, 50)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BotonCD)
-                        .addGap(68, 68, 68))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Salir)
+                        .addGap(36, 36, 36))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(143, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(132, 132, 132))
         );
@@ -95,7 +104,8 @@ public class VentanaAñadir extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonCD)
-                    .addComponent(BotonCanciones))
+                    .addComponent(BotonCanciones)
+                    .addComponent(Salir))
                 .addGap(18, 18, 18)
                 .addComponent(PanelAñadirCosas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(16, 16, 16))
@@ -125,6 +135,11 @@ public class VentanaAñadir extends javax.swing.JFrame {
         PanelAñadirCosas.revalidate();
         PanelAñadirCosas.repaint();
     }//GEN-LAST:event_BotonCDActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_SalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,6 +180,7 @@ public class VentanaAñadir extends javax.swing.JFrame {
     private javax.swing.JButton BotonCD;
     private javax.swing.JButton BotonCanciones;
     public static javax.swing.JPanel PanelAñadirCosas;
+    private javax.swing.JButton Salir;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

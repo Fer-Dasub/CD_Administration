@@ -16,6 +16,7 @@ import Models.Models.*;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,11 +33,13 @@ public class VentanaCD extends javax.swing.JPanel {
     List<String> Lartis = new ArrayList<>();
     List<Cancion> cancionobject = new ArrayList<>();
     List<String> Lcan = new ArrayList<>();
+    
     /**
      * Creates new form VentanaCD
      */
     public VentanaCD() {
         initComponents();
+        
           try {
               Lartis = Datosartista.ListaNombreArtista();
               artistaobject = Datosartista.ListaDeArtistas();
@@ -75,7 +78,6 @@ public class VentanaCD extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         Nombre_text = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         ComboArtista = new javax.swing.JComboBox<>();
         ComboCOmpañia = new javax.swing.JComboBox<>();
         ComboCancion = new javax.swing.JComboBox<>();
@@ -106,8 +108,6 @@ public class VentanaCD extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Cancelar");
-
         jLabel6.setText("Numero CD");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -122,7 +122,7 @@ public class VentanaCD extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(78, 78, 78))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -147,10 +147,8 @@ public class VentanaCD extends javax.swing.JPanel {
                                     .addComponent(ComboCOmpañia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Precio_text)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addGap(95, 95, 95)
+                        .addComponent(jButton1)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -183,9 +181,7 @@ public class VentanaCD extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addComponent(Precio_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addComponent(jButton1)
                 .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -209,6 +205,7 @@ public class VentanaCD extends javax.swing.JPanel {
         newcd.setCompañias(compañiasobject.get(pcom));
         newcd.setCanciones(cancionobject.get(pcan));
         newcd.setArtistaz(artistaobject.get(part));
+        JOptionPane.showMessageDialog(this, "Se añadio un CD");
           try {
               //agregarlos a la lista
               Datoscd.agregarCD(newcd);
@@ -226,7 +223,6 @@ public class VentanaCD extends javax.swing.JPanel {
     private javax.swing.JTextField Nombre_text;
     private javax.swing.JTextField Precio_text;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -2,12 +2,16 @@ package Models.Models;
 
 import java.util.*;
 import Models.Models.*;
+import Models.Models.Crud.CancionCrud;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CD extends Obra {
     private int Nocd;
     private Cancion canciones;
     private Coleccion coleccion;
     private Artista artistaz;
+
     
     public CD(){
     }
@@ -33,8 +37,7 @@ public class CD extends Obra {
     }
 
  
-   
-   
+
   
     /*Set y Get */
 
@@ -72,12 +75,20 @@ public class CD extends Obra {
     /*Generar estructura */
     @Override
     public String toString() {
+        /*CancionCrud DatosCanciones = new CancionCrud();
+        List<String> art = new ArrayList<>();
+        try {
+            art = DatosCanciones.ListaNombreCanciones();
+        } catch (Exception ex) {
+            Logger.getLogger(Cancion.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+        Cancion rola = new Cancion();
+        
         String datos;
         datos = "\n"+"CD: "+Titulo+" || ";
         datos += "Numero de CD "+Nocd+" ||";
-        datos +="Canciones  "+ canciones+" || ";
-        datos +="Artista " +artistaz+" || ";
-        datos +="Compañia "+compañias+"\n";
+        datos +=artistaz+" || ";
+        datos +=compañias+"\n";
         return datos;
     }
 

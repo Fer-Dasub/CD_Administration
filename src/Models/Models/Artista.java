@@ -1,6 +1,11 @@
 package Models.Models;
 
+import Models.Models.Crud.ArtistaCrud;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -49,7 +54,7 @@ public class Artista {
     
     @Override
     public String toString(){
-        String datos = "||Artista: "+Nombre+" ||Nacionalidad: "+Nacionalidad+" ||Genero musical: "+GeneroDeMusica+" ||";
+        String datos = "Artista: "+getNombre();
         return datos;
     }
 }

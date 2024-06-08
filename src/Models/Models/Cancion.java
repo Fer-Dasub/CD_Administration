@@ -1,19 +1,24 @@
 package Models.Models;
 
 import java.util.*;
+import Models.Models.Crud.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import Models.Models.*;
 
 public class Cancion extends Obra {
 
     /*private String CancionNombre;*/
     private Float Duracion;
     private CD cd;
-    private Map<String, Artista> artista;
+    private Artista artista;
+    List<String> art = new ArrayList<>();
 
     public Cancion() {
 
     }
 
-    public Cancion(String CancionNombre, Float Duracion, CD cd, Map<String, Cancion> Cancion, Map<String, Artista> artistas) {
+    public Cancion(String CancionNombre, Float Duracion, CD cd, Map<String, Cancion> Cancion, Artista artistas) {
         /*this.CancionNombre = CancionNombre;*/
         this.Titulo = CancionNombre;
         this.Duracion = Duracion;
@@ -37,22 +42,46 @@ public class Cancion extends Obra {
         this.cd = cd;
     }
 
-    public Map<String, Artista> getArtista() {
+    public Artista getArtista() {
         return artista;
     }
 
-    public void setArtista(Map<String, Artista> artista) {
+    public void setArtista(Artista artista) {
         this.artista = artista;
     }
 
+    public List<String> getArt() {
+        return art;
+    }
+
+    public void setArt(List<String> art) {
+        this.art = art;
+    }
+
+  
+
+    public List<String> getlistacd(){
+        CancionCrud DatosCanciones = new CancionCrud();
+        
+        try {
+            art = DatosCanciones.ListaNombreCanciones();
+        } catch (Exception ex) {
+            Logger.getLogger(Cancion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Canciones= "+art);
+        return art;
+    }
+    
+    
     @Override
     public String toString() {
-        String datos = "\n"+"Cancion: " + Titulo + " -- ";
-        datos += " ||Artista " + artista;
-        datos += " ||Clave "+ Clave;
-        datos += " || Precio "+ Precio;
-        /*datos +=" ||CD "+cd.getClave();*/
-        datos +=" ||Compañia "+compañias+"\n";
+        
+       
+        String datos ="\n"+"Cancion: " + Titulo + " -- ";
+         datos += artista;
+       
+       
         return datos;
+        
     }
 }

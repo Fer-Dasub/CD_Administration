@@ -38,7 +38,7 @@ public class VentanaCancion extends javax.swing.JPanel {
             LCD= Datoscd.ListaNombreCD();
             cdobject = Datoscd.ListaDeCDs();
         } catch (Exception ex) {
-            Logger.getLogger(VentanaAñadirObra.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VentanaAñadir.class.getName()).log(Level.SEVERE, null, ex);
         }
         for (int i = 0; i < Lcompañias.size(); i++) {
             Compañia_combo.addItem(Lcompañias.set(i, toString()));
@@ -73,7 +73,6 @@ public class VentanaCancion extends javax.swing.JPanel {
         Precio_text = new javax.swing.JTextField();
         Duracion_text = new javax.swing.JTextField();
         AñadirButtonn = new javax.swing.JButton();
-        CancelarButon = new javax.swing.JButton();
         Compañia_combo = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         ComboCD = new javax.swing.JComboBox<>();
@@ -111,8 +110,6 @@ public class VentanaCancion extends javax.swing.JPanel {
             }
         });
 
-        CancelarButon.setText("Cancelar");
-
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("CD");
 
@@ -120,10 +117,6 @@ public class VentanaCancion extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(39, 39, 39))
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,11 +132,6 @@ public class VentanaCancion extends javax.swing.JPanel {
                                 .addComponent(Compañia_combo, 0, 105, Short.MAX_VALUE)
                                 .addComponent(ComboCD, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(3, 3, 3))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(15, 15, 15)
-                            .addComponent(AñadirButtonn)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CancelarButon))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel3)
@@ -156,7 +144,16 @@ public class VentanaCancion extends javax.swing.JPanel {
                                     .addGap(0, 3, Short.MAX_VALUE))
                                 .addComponent(Clave_text)
                                 .addComponent(Nombre_text)))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(39, 39, 39))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(AñadirButtonn)
+                        .addGap(89, 89, 89))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,10 +184,8 @@ public class VentanaCancion extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(ComboCD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CancelarButon)
-                    .addComponent(AñadirButtonn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(AñadirButtonn)
                 .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -236,7 +231,6 @@ public class VentanaCancion extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AñadirButtonn;
-    private javax.swing.JButton CancelarButon;
     private javax.swing.JTextField Clave_text;
     private javax.swing.JComboBox<String> ComboCD;
     private javax.swing.JComboBox<String> Compañia_combo;

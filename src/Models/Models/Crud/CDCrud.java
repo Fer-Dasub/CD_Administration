@@ -4,16 +4,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import Serializacion.SerializarObjeto;
 
 import Models.Models.CD;
+import java.io.Serializable;
 
-public class CDCrud {
+public class CDCrud implements Serializable{
     private static final Map<String, CD> Bdcd= new HashMap<>();
     public int agregarCD(CD ccd) throws Exception{
         if(Bdcd.containsKey(ccd.getTitulo())){
-            throw new Exception("Ya existe una CD con la Clave "+ccd.getClave());
+            throw new Exception("Ya existe una CD con la Clave "+ccd.getTitulo());
         }
         Bdcd.put(ccd.getTitulo(), ccd);
+        SerializarObjeto.serializarObjeto("EstadosCD.Dat", this);
             return Bdcd.size();
         
     }

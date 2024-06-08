@@ -38,6 +38,14 @@ public class CancionCrud {
         BdCancions.remove(Nombre);
         return BdCancions.size();
     }
+    
+    /*public int eliminarCancionpuesto() throws Exception{
+        if(!BdCancions.containsKey(Nombre)){
+            throw new Exception("La Nombre "+Nombre+" no esta asociada a ninguna Cancion");
+        }
+        BdCancions.remove(Nombre);
+        return BdCancions.size();
+    }*/
     public List<Cancion> ListaDeCancions()throws Exception{
         if(BdCancions.isEmpty()){
             throw new Exception("No hay Cancions registradas");

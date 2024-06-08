@@ -14,7 +14,6 @@ public class Main {
     public static void main() {
         /* Creacion de los mapas */
         Map<String, CD> cds = new HashMap<>();
-        Map<String, Cancion> cancions = new HashMap<>();
         Map<String, Artista> artistaz = new HashMap<>();
         Map<String, Obra> obras = new HashMap<>();
         Map<String, Compañia> compañia = new HashMap<>();
@@ -31,16 +30,19 @@ public class Main {
         CD SSJ = new CD();
         CD TR = new CD();
         CD SS = new CD();
+        Artista Paulo = new Artista();
+        Paulo.setNombre("Paulo");
         SS.setTitulo("SS");
         TR.setTitulo("TR");
         SSJ.setTitulo("SSJ");
         Artista Duki = new Artista();
-        artistaz.put("Duki", Duki);
+        
         Duki.setNombre("Duki");
         Duki.setGeneroDeMusica("Rap/Trap");
         Duki.setNacionalidad("Argentino");
-        Duki.setCd(cds);
-        SSJ.setArtistaz(Duki);
+        
+        SS.setNocd(4);
+        
         
         Cancion Rockstar = new Cancion();
         Rockstar.setTitulo("Rockstar");
@@ -57,12 +59,23 @@ public class Main {
         Cancion Canela = new Cancion();
         Canela.setTitulo("Canela");
         Canela.setCompañias(DiscosAAA);
-        Canela.setCd(SS);
-        Canela.setArtista(artistaz);
-        SSJ.setCanciones(Canela);
+        
+       
+        //SSJ.setCanciones(Canela);
         Rockstar.setCd(SSJ);
+        Canela.setCd(SSJ);
         Rockstar.setClave("222");
         SSJ.setClave("222");
+        SSJ.setCanciones(Canela);
+        SSJ.setCanciones(Rockstar);
+        SSJ.setArtistaz(Paulo);
+        //SSJ.setArtistaz(Duki);
+        Rockstar.setArtista(Duki);
+        //SSJ.setCanciones(Rockstar);
+
+       
+        
+        
         /* CRUD */
         List<Compañia> Lcompañia = new ArrayList<>();
         try {
@@ -74,6 +87,7 @@ public class Main {
             
             Datoscancion.agregarCancion(Rockstar);
             Datosartistia.agregarArtista(Duki);
+            Datosartistia.agregarArtista(Paulo);
             Datoscd.agregarCD(SSJ);
             Datoscd.agregarCD(SS);
             Datoscd.agregarCD(TR);
@@ -82,6 +96,7 @@ public class Main {
             Datoscompañia.agregarCompañia(Sony);
             Datoscompañia.agregarCompañia(Warner);
             Datoscompañia.agregarCompañia(Mproductor);
+            
             
             /*
             System.out.println("Total de obras "+totalobra+ " Total de canciones "+totalcancion);
